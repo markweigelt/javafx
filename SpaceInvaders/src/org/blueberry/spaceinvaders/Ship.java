@@ -20,6 +20,7 @@ public class Ship extends Sprite {
         setXPosition();
         setBoundaries();
         moveShip(positionX, positionY);
+        fire();
     }
     
     private void setXPosition() {
@@ -45,6 +46,9 @@ public class Ship extends Sprite {
         imageView.setTranslateY(y);
     }
 
-    
-   
+    private void fire () {
+         if(ship.isSpace()) {
+             System.out.println("FIRE");
+         }
+    }
 }

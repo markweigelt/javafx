@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 public class SpaceInvaders extends Application {
     static final double WIDTH = 800, HEIGHT = 600;
     static final Color BACKGROUNDCOLOR = Color.BLACK;
-    private boolean left, right;
+    private boolean left, right, space;
     Group root;
     Ship iShip;
     private Scene scene;
@@ -52,12 +52,14 @@ public class SpaceInvaders extends Application {
             switch (event.getCode()) {
                 case LEFT:  left  = true; break;
                 case RIGHT: right = true; break;
+                case SPACE: space = true; break;
             }
         });
         scene.setOnKeyReleased((KeyEvent event) -> {
             switch (event.getCode()) {
                 case LEFT:  left  = false; break;
-                case RIGHT: right = false; break;
+                 case RIGHT: right = false; break;
+                case SPACE: space = false; break;
             }  
         });
     }
@@ -93,6 +95,14 @@ public class SpaceInvaders extends Application {
     
     public void setRight(boolean right) {
         this.right = right;
+    }
+    
+     public boolean isSpace() {
+        return space;
+    }
+    
+    public void setSpace(boolean space) {
+        this.space = space;
     }
     
 }
