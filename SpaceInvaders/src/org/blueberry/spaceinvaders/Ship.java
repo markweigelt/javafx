@@ -12,7 +12,7 @@ public class Ship extends Sprite {
     @Override
     public void update() {
         setXPosition();
-        setXMovement(positionX);
+        setXMovement(positionX, positionY);
     }
     
     private void setXPosition() {
@@ -24,8 +24,9 @@ public class Ship extends Sprite {
         }
     }
     
-    private void setXMovement(double x) {
+    private void setXMovement(double x, double y) {
         imageView.setTranslateX(x);
+        imageView.setTranslateY(y);
     }
    
 }
