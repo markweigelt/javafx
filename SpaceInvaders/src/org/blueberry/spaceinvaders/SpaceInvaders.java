@@ -26,6 +26,9 @@ public class SpaceInvaders extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Space Invaders");
+        primaryStage.setMaxWidth(WIDTH);
+        primaryStage.setMaxHeight(HEIGHT);
+        primaryStage.setResizable(false);
         root = new Group();
         scene = new Scene(root, WIDTH, HEIGHT, BACKGROUNDCOLOR);
         primaryStage.setScene(scene);
@@ -69,7 +72,7 @@ public class SpaceInvaders extends Application {
     }
     
     private void createGameActors() {
-       iShip = new Ship(this, imgShip, 340, 560);
+       iShip = new Ship(this, imgShip, WIDTH/2 - imgShip.getWidth()/2 - 20, HEIGHT - imgShip.getHeight() - 30);
     }
     
     private void addGameActors() {

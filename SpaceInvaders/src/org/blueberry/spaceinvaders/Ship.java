@@ -13,6 +13,7 @@ public class Ship extends Sprite {
         super(img, xLocation, yLocation);
         ship = iShip;
         rightBoundary = WIDTH - img.getWidth();
+        System.out.println(rightBoundary);
     }
     
     @Override
