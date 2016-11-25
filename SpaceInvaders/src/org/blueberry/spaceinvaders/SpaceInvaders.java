@@ -100,15 +100,13 @@ public class SpaceInvaders extends Application {
     public void setRight(boolean right) {
         this.right = right;
     }
-    
-     public boolean isSpace() {
-        return space;
-    }
-     
+       
     private void fire() {
         System.out.println("Laser");
         iLaser = new Laser(imgLaser, iShip.getPositionX() + iShip.width/2, HEIGHT - iShip.height - 30 - imgLaser.getHeight());
         root.getChildren().add(iLaser.imageView);
+        iShip.fire(iLaser);
+        
     }
     
 }

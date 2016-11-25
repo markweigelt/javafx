@@ -44,5 +44,9 @@ public class Ship extends Sprite {
         imageView.setTranslateX(x);
         imageView.setTranslateY(y);
     }
+    
+    public void fire(Laser laser) {
+        System.out.println("Laser" + laser);
+    }
 
 }
