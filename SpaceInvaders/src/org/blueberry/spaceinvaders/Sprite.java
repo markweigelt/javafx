@@ -5,20 +5,23 @@ import javafx.scene.image.ImageView;
 
 public abstract class Sprite {
     
-    private Image image;
+    protected Image image;
     protected ImageView imageView;
     protected double positionX, positionY;
     protected double velocityX, velocityY;
-    private double width;
-    private double height;
+    protected double width;
+    protected double height;
 
 
     public Sprite(Image img, double xLocation, double yLocation) {
+        image = img;
         imageView = new ImageView(img);
         positionX = xLocation;
         positionY = yLocation;    
-        velocityX = 10;
-        velocityY = 10; 
+        velocityX = 5;
+        velocityY = 5;
+        width = img.getWidth();
+        height = img.getHeight();
     }
     
     public abstract void update();

@@ -9,7 +9,7 @@ public class Ship extends Sprite {
     protected static double rightBoundary;
     SpaceInvaders ship;
     
-    public Ship (SpaceInvaders iShip, Image img, double xLocation, double yLocation) {
+    public Ship(SpaceInvaders iShip, Image img, double xLocation, double yLocation) {
         super(img, xLocation, yLocation);
         ship = iShip;
         rightBoundary = WIDTH - img.getWidth();
@@ -20,7 +20,6 @@ public class Ship extends Sprite {
         setXPosition();
         setBoundaries();
         moveShip(positionX, positionY);
-        fire();
     }
     
     private void setXPosition() {
@@ -46,9 +45,4 @@ public class Ship extends Sprite {
         imageView.setTranslateY(y);
     }
 
-    private void fire () {
-         if(ship.isSpace()) {
-             System.out.println("FIRE");
-         }
-    }
 }

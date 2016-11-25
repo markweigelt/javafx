@@ -19,8 +19,9 @@ public class SpaceInvaders extends Application {
     private boolean left, right, space;
     Group root;
     Ship iShip;
+    Laser iLaser;
     private Scene scene;
-    private Image imgShip;
+    private Image imgShip, imgLaser;
     private GamePlayLoop gamePlayLoop;
     
     @Override
@@ -55,20 +56,20 @@ public class SpaceInvaders extends Application {
             switch (event.getCode()) {
                 case LEFT:  left  = true; break;
                 case RIGHT: right = true; break;
-                case SPACE: space = true; break;
+                case SPACE: fire(); break;
             }
         });
         scene.setOnKeyReleased((KeyEvent event) -> {
             switch (event.getCode()) {
                 case LEFT:  left  = false; break;
-                 case RIGHT: right = false; break;
-                case SPACE: space = false; break;
+                case RIGHT: right = false; break;
             }  
         });
     }
     
     private void createGameImages() {
         imgShip = new Image("resources/images/ship.png"); // https://placeholdit.imgix.net/~text?txtsize=15&bg=ff0000&txtclr=ffffff&txt=Ship&w=80&h=40&fm=png
+        imgLaser = new Image("resources/images/laser.png"); // https://placeholdit.imgix.net/~text?txtsize=5&txt=5%C3%9720&w=5&h=20&txtpad=1
     }
     
     private void createGameActors() {
@@ -103,9 +104,11 @@ public class SpaceInvaders extends Application {
      public boolean isSpace() {
         return space;
     }
-    
-    public void setSpace(boolean space) {
-        this.space = space;
+     
+    private void fire() {
+        System.out.println("Laser");
+        iLaser = new Laser(imgLaser, iShip.getPositionX() + iShip.width/2, HEIGHT - iShip.height - 30 - imgLaser.getHeight());
+        root.getChildren().add(iLaser.imageView);
     }
     
 }
