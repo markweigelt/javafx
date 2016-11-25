@@ -16,6 +16,7 @@ public class Laser extends Sprite {
     public Laser(Image img, double xLocation, double yLocation) {
         super(img, xLocation, yLocation);
         moveLaser(positionX, positionY);
+       
     }
     
      @Override

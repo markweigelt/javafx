@@ -1,6 +1,5 @@
 package org.blueberry.spaceinvaders;
 
-import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -16,7 +15,7 @@ import javafx.stage.Stage;
 public class SpaceInvaders extends Application {
     static final double WIDTH = 800, HEIGHT = 600;
     static final Color BACKGROUNDCOLOR = Color.BLACK;
-    private boolean left, right, space;
+    private boolean left, right;
     Group root;
     Ship iShip;
     Laser iLaser;
@@ -106,7 +105,6 @@ public class SpaceInvaders extends Application {
         iLaser = new Laser(imgLaser, iShip.getPositionX() + iShip.width/2, HEIGHT - iShip.height - 30 - imgLaser.getHeight());
         root.getChildren().add(iLaser.imageView);
         iShip.fire(iLaser);
-        
     }
     
 }
