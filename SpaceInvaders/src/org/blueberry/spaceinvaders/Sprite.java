@@ -18,8 +18,8 @@ public abstract class Sprite {
         imageView = new ImageView(img);
         positionX = xLocation;
         positionY = yLocation;    
-        velocityX = 5;
-        velocityY = 5;
+        velocityX = 15;
+        velocityY = 15;
         width = img.getWidth();
         height = img.getHeight();
     }

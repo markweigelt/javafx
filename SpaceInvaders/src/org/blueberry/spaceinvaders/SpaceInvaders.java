@@ -22,6 +22,7 @@ public class SpaceInvaders extends Application {
     private Scene scene;
     private Image imgShip, imgLaser;
     private GamePlayLoop gamePlayLoop;
+    SpriteManager spriteManager;
     
     @Override
     public void start(Stage primaryStage) {
@@ -33,10 +34,10 @@ public class SpaceInvaders extends Application {
         scene = new Scene(root, WIDTH, HEIGHT, BACKGROUNDCOLOR);
         primaryStage.setScene(scene);
 
+        createSpriteManager();
         createSceneEventHandling();
-        createGameImages();
-        createGameActors();
-        addGameActors();
+        loadGameImages();
+        createInitialGameActors();
         createStartGameLoop();
        
         primaryStage.show();
@@ -48,6 +49,10 @@ public class SpaceInvaders extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    private void createSpriteManager() {
+       spriteManager = new SpriteManager();
     }
     
     private void createSceneEventHandling(){
@@ -66,19 +71,17 @@ public class SpaceInvaders extends Application {
         });
     }
     
-    private void createGameImages() {
+    private void loadGameImages() {
         imgShip = new Image("resources/images/ship.png"); // https://placeholdit.imgix.net/~text?txtsize=15&bg=ff0000&txtclr=ffffff&txt=Ship&w=80&h=40&fm=png
         imgLaser = new Image("resources/images/laser.png"); // https://placeholdit.imgix.net/~text?txtsize=5&txt=5%C3%9720&w=5&h=20&txtpad=1
     }
     
-    private void createGameActors() {
+    private void createInitialGameActors() {
        iShip = new Ship(this, imgShip, WIDTH/2 - imgShip.getWidth()/2 - 20, HEIGHT - imgShip.getHeight() - 30);
+       root.getChildren().add(iShip.imageView);
+       spriteManager.addSprites(iShip);
     }
-    
-    private void addGameActors() {
-        root.getChildren().add(iShip.imageView);
-    }
-    
+
     private void createStartGameLoop() {
         gamePlayLoop = new GamePlayLoop(this);
         gamePlayLoop.start();
@@ -101,10 +104,9 @@ public class SpaceInvaders extends Application {
     }
        
     private void fire() {
-        System.out.println("Laser");
         iLaser = new Laser(imgLaser, iShip.getPositionX() + iShip.width/2, HEIGHT - iShip.height - 30 - imgLaser.getHeight());
         root.getChildren().add(iLaser.imageView);
-        iShip.fire(iLaser);
+        spriteManager.addSprites(iLaser);
     }
     
 }

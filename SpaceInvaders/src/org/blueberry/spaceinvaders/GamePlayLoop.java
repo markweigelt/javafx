@@ -3,15 +3,16 @@ package org.blueberry.spaceinvaders;
 import javafx.animation.AnimationTimer;
 
 public class GamePlayLoop extends AnimationTimer {
-    protected SpaceInvaders ship;
-    public GamePlayLoop(SpaceInvaders iShip) {
-        ship = iShip;
+    protected SpaceInvaders spaceInv;
+    public GamePlayLoop(SpaceInvaders spaceInvaders) {
+        spaceInv = spaceInvaders;
     }
 
     @Override
     public void handle(long now) {
-        ship.iShip.update();
-}
+       //spaceInv.iShip.update();
+       spaceInv.spriteManager.update();
+    }
     
     @Override
     public void start() {
@@ -22,5 +23,5 @@ public class GamePlayLoop extends AnimationTimer {
     public void stop() {
         super.stop();
     }
-    
+
 }
