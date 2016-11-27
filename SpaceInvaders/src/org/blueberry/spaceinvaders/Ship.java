@@ -1,18 +1,21 @@
 package org.blueberry.spaceinvaders;
 
-import static org.blueberry.spaceinvaders.SpaceInvaders.HEIGHT;
 import static org.blueberry.spaceinvaders.SpaceInvaders.WIDTH;
 import javafx.scene.image.Image;
 
+/**
+ * The ship.
+ */
 public class Ship extends Sprite {
     protected static final double LEFT_BOUNDARY = 0;
     protected static double rightBoundary;
     SpaceInvaders ship;
     
-    public Ship(SpaceInvaders iShip, Image img, double xLocation, double yLocation) {
-        super(img, xLocation, yLocation);
+    public Ship(SpaceInvaders iShip, Image img, double xLocation, double yLocation, double xVelocity, double yVelocity) {
+        super(img, xLocation, yLocation, xVelocity, yVelocity);
         ship = iShip;
-        rightBoundary = WIDTH - img.getWidth();
+        rightBoundary = WIDTH - img.getWidth() - 6;
+        System.out.print(rightBoundary);
     }
     
     @Override
@@ -45,6 +48,4 @@ public class Ship extends Sprite {
         imageView.setTranslateY(y);
     }
     
-   
-
 }

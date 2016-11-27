@@ -3,6 +3,9 @@ package org.blueberry.spaceinvaders;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ *  The Sprite class represents a image to be displayed on screen.
+ */
 public abstract class Sprite {
     
     protected Image image;
@@ -13,13 +16,13 @@ public abstract class Sprite {
     protected double height;
 
 
-    public Sprite(Image img, double xLocation, double yLocation) {
+    public Sprite(Image img, double xLocation, double yLocation, double xVelocity, double yVelocity) {
         image = img;
         imageView = new ImageView(img);
         positionX = xLocation;
         positionY = yLocation;    
-        velocityX = 15;
-        velocityY = 15;
+        velocityX = xVelocity;
+        velocityY = yVelocity;
         width = img.getWidth();
         height = img.getHeight();
     }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.blueberry.spaceinvaders;
 
 import java.util.ArrayList;
@@ -10,8 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
- * @author Mark Weigelt
+ * Sprite manager is responsible for holding all sprite objects.
  */
 public class SpriteManager {
 
@@ -28,7 +22,7 @@ public class SpriteManager {
     }
     
     /**
-     * @return  */
+     * @return CURRENT_ACTORS */
     public List<Sprite> getAllSprites() {
         return CURRENT_ACTORS;
     }
@@ -42,7 +36,6 @@ public class SpriteManager {
     }
     
     public void update() {
-        //System.out.print(this.getAllSprites().size());
         this.getAllSprites().forEach((sprite) -> {
             sprite.update();
         });

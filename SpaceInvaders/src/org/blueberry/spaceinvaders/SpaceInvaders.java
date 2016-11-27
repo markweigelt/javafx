@@ -9,8 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
- * 
- * @author Mark Weigelt
+ * The main application class.
  */
 public class SpaceInvaders extends Application {
     static final double WIDTH = 800, HEIGHT = 600;
@@ -20,7 +19,7 @@ public class SpaceInvaders extends Application {
     Ship iShip;
     Laser iLaser;
     private Scene scene;
-    private Image imgShip, imgLaser;
+    private Image imgShip, imgLaser, imgInvader1, imgInvader2, imgInvader3, imgMysteryShip;
     private GamePlayLoop gamePlayLoop;
     SpriteManager spriteManager;
     
@@ -72,12 +71,16 @@ public class SpaceInvaders extends Application {
     }
     
     private void loadGameImages() {
-        imgShip = new Image("resources/images/ship.png"); // https://placeholdit.imgix.net/~text?txtsize=15&bg=ff0000&txtclr=ffffff&txt=Ship&w=80&h=40&fm=png
-        imgLaser = new Image("resources/images/laser.png"); // https://placeholdit.imgix.net/~text?txtsize=5&txt=5%C3%9720&w=5&h=20&txtpad=1
+        imgShip = new Image("resources/images/ship.png");
+        imgLaser = new Image("resources/images/laser.png");
+        imgInvader1 = new Image("resources/images/invader1.png");
+        imgInvader2 = new Image("resources/images/invader2.png");
+        imgInvader3 = new Image("resources/images/invader3.png");
+        imgMysteryShip = new Image("resources/images/mystery_ship.png");
     }
     
     private void createInitialGameActors() {
-       iShip = new Ship(this, imgShip, WIDTH/2 - imgShip.getWidth()/2 - 20, HEIGHT - imgShip.getHeight() - 30);
+       iShip = new Ship(this, imgShip, WIDTH/2 - imgShip.getWidth()/2 - 20, HEIGHT - imgShip.getHeight() - 30, 15, 15);
        root.getChildren().add(iShip.imageView);
        spriteManager.addSprites(iShip);
     }
@@ -104,7 +107,7 @@ public class SpaceInvaders extends Application {
     }
        
     private void fire() {
-        iLaser = new Laser(imgLaser, iShip.getPositionX() + iShip.width/2, HEIGHT - iShip.height - 30 - imgLaser.getHeight());
+        iLaser = new Laser(imgLaser, iShip.getPositionX() + iShip.width/2 - imgLaser.getWidth()/2, HEIGHT - iShip.height - imgLaser.getHeight(), 10, 10);
         root.getChildren().add(iLaser.imageView);
         spriteManager.addSprites(iLaser);
     }
